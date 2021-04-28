@@ -1,9 +1,10 @@
 language: java
-include:
-  - stage: Run tests
-    script : mvn test
-  - stage: Deploy
-    deploy:
-      provider: heroku
-      api_key: b8bd930b-3767-4fee-a617-d9c9c7aa44ce
-      app: demo-ci-calidad
+jobs:
+  include:
+    - stage: Run tests
+      script : mvn test
+    - stage: Deploy
+      deploy:
+        provider: heroku
+        api_key: b8bd930b-3767-4fee-a617-d9c9c7aa44ce
+        app: demo-ci-calidad
