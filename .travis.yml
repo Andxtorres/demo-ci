@@ -3,8 +3,17 @@ jobs:
   include:
     - stage: Run tests
       script : mvn test
-    - stage: Deploy
+    - stage: Deploy staging
+      deploy:
+        provider: heroku
+        api_key: b8bd930b-3767-4fee-a617-d9c9c7aa44ce
+        app: demo-ci-calidad-staging
+    - stage: Ping Staging
+      script: 'curl https://demo-ci-calidad-staging.herokuapp.com/v1/prueba'
+    - stage: Deploy production
       deploy:
         provider: heroku
         api_key: b8bd930b-3767-4fee-a617-d9c9c7aa44ce
         app: demo-ci-calidad
+    - stage: Ping production
+      script: 'curl https://demo-ci-calidad.herokuapp.com/v1/prueba'
