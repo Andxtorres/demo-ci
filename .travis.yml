@@ -17,3 +17,6 @@ jobs:
         app: demo-ci-calidad
     - stage: Ping production
       script: 'curl https://demo-ci-calidad.herokuapp.com/v1/prueba'
+    - stage: Notify team
+notifications:
+  slack: applab-espacio:tyaaRW2SujAFj86yIaTVGb2T
